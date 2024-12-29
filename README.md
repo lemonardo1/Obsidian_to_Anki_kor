@@ -1,22 +1,29 @@
-# Obsidian_to_Anki
-Plugin to add flashcards from a text or markdown file to Anki. Run in Obsidian as a plugin, or from the command-line as a python script. Built with [Obsidian](https://obsidian.md/) markdown syntax in mind. Supports **user-defined custom syntax for flashcards.**  
-See the [Trello](https://trello.com/b/6MXEizGg/obsidiantoanki) for planned features.
+# Obsidian_to_Anki  
+이 플러그인은 텍스트 또는 마크다운 파일에서 플래시카드를 Anki로 추가하는 기능을 제공합니다. 
+Obsidian에서 플러그인으로 실행하거나 명령줄에서 Python 스크립트로 실행할 수 있습니다. Obsidian 마크다운 문법을 염두에 두고 제작되었으며, **사용자 정의 플래시카드 문법**을 지원합니다.  
+추가 예정 기능은 [Trello](https://trello.com/b/6MXEizGg/obsidiantoanki)에서 확인하세요.
 
-## Getting started
+기능 추가 요청은 lemonaatree@gmail.com 이나 코리안키 네이버 카페에서 제시해주세요.
+https://cafe.naver.com/koreanki
 
-Check out the [Wiki](https://github.com/Pseudonium/Obsidian_to_Anki/wiki)! It has a ton of information, including setup instructions for new users. I will include a copy of the instructions here:
+## 시작하기  
 
-## Setup
+설치 및 사용법에 대한 자세한 내용은 [Wiki](https://github.com/Pseudonium/Obsidian_to_Anki/wiki)를 참조하세요! 
+아래는 기본적인 요약입니다.
 
-### All users
-1. Start up [Anki](https://apps.ankiweb.net/), and navigate to your desired profile.
-2. Ensure that you've installed [AnkiConnect](https://git.foosoft.net/alex/anki-connect).
+---
 
-### Obsidian plugin users
-3. Have [Obsidian](https://obsidian.md/) downloaded
-4. Search the 'Community plugins' list for this plugin
-5. Install the plugin.
-6. In Anki, navigate to Tools->Addons->AnkiConnect->Config, and change it to look like this:
+## 설정  
+
+### 모든 사용자  
+1. [Anki](https://apps.ankiweb.net/)를 실행하고 원하는 프로필로 이동합니다.  
+2. [AnkiConnect](https://git.foosoft.net/alex/anki-connect)를 설치합니다.  
+
+### Obsidian 플러그인 사용자  
+3. [Obsidian](https://obsidian.md/)을 다운로드합니다.  
+4. '커뮤니티 플러그인' 목록에서 이 플러그인을 검색합니다.  
+5. 플러그인을 설치합니다.  
+6. Anki에서 *도구 > 추가 기능 > AnkiConnect > 설정*으로 이동하여 아래와 같이 구성합니다.  
 <pre>
 {
     "apiKey": null,
@@ -29,104 +36,49 @@ Check out the [Wiki](https://github.com/Pseudonium/Obsidian_to_Anki/wiki)! It ha
         "app://obsidian.md"
     ]
 }
-</pre>
+</pre>  
 
-7. Restart Anki to apply the above changes
-8. With Anki running in the background, load the plugin. This will generate the plugin settings.
+7. 위 설정을 적용하려면 Anki를 다시 시작합니다.  
+8. Anki가 실행 중인 상태에서 플러그인을 로드합니다. 이렇게 하면 플러그인 설정이 생성됩니다.  
 
+**참고:** 이후 Obsidian을 실행할 때는 Anki가 실행 중이지 않아도 됩니다. 그러나 플러그인을 사용하려면 Anki가 백그라운드에서 실행 중이어야 합니다.  
 
-You shouldn't need Anki running to load Obsidian in the future, though of course you will need it for using the plugin!
+플러그인을 실행하려면 Obsidian 리본 메뉴(예: '그래프 보기 열기', '퀵 스위처 열기'와 같은 버튼이 있는 곳)에서 Anki 아이콘을 찾으세요.  
+사용법에 대한 추가 정보는 [Wiki](https://github.com/Pseudonium/Obsidian_to_Anki/wiki)를 확인하세요!  
 
-To run the plugin, look for an Anki icon on your ribbon (the place where buttons such as 'open Graph view' and 'open Quick Switcher' are).
-For more information on use, please check out the [Wiki](https://github.com/Pseudonium/Obsidian_to_Anki/wiki)!
+### Python 스크립트 사용자  
+3. 최신 버전의 [Python](https://www.python.org/downloads/)을 설치합니다.  
+4. 신규 사용자는 [릴리스 페이지](https://github.com/Pseudonium/Obsidian_to_Anki/releases)에서 `obstoanki_setup.py`를 다운로드하고 스크립트를 설치하려는 폴더(예: 노트 폴더)에 저장합니다.  
+5. 파일 탐색기에서 `obstoanki_setup.py`를 더블 클릭하여 실행합니다. 그러면 최신 버전의 스크립트와 필요한 종속 항목이 자동으로 다운로드됩니다. 기존 사용자는 기존 `obstoanki_setup.py`를 실행하여 최신 버전으로 업데이트할 수 있습니다.  
+6. 아래의 권한 탭을 확인하여 스크립트를 실행할 수 있도록 설정합니다.  
+7. 파일 탐색기에서 `obsidian_to_anki.py`를 더블 클릭하여 실행합니다. 그러면 설정 파일인 `obsidian_to_anki_config.ini`가 생성됩니다.  
 
-### Python script users
-3. Install the latest version of [Python](https://www.python.org/downloads/).
-4. If you are a new user, download `obstoanki_setup.py` from the [releases page](https://github.com/Pseudonium/Obsidian_to_Anki/releases), and place it in the folder you want the script installed (for example your notes folder).  
-5. Run `obstoanki_setup.py`, for example by double-clicking it in a file explorer. This will download the latest version of the script and required dependencies automatically. Existing users should be able to run their existing `obstoanki_setup.py` to get the latest version of the script.  
-6. Check the Permissions tab below to ensure the script is able to run.
-7. Run `obsidian_to_anki.py`, for example by double-clicking it in a file explorer. This will generate a config file, `obsidian_to_anki_config.ini`.
+#### 권한  
+스크립트는 다음 작업을 수행할 수 있어야 합니다:  
+* 스크립트가 설치된 디렉터리에 설정 파일 생성.  
+* 사용 중인 디렉터리의 파일 읽기.  
+* 사용 중인 디렉터리에 백업 파일 생성.  
+* 사용 중인 디렉터리에서 파일 이름 변경.  
+* 사용 중인 디렉터리에서 백업 파일 삭제.  
+* 현재 작업 디렉터리를 일시적으로 변경(로컬 이미지 경로를 올바르게 확인하기 위해).  
 
-#### Permissions
-The script needs to be able to:
-* Make a config file in the directory the script is installed.
-* Read the file in the directory the script is used.
-* Make a backup file in the directory the script is used.
-* Rename files in the directory the script is used.
-* Remove a backup file in the directory the script is used.
-* Change the current working directory temporarily (so that local image paths are resolved correctly).
+---
 
-## Features
+## 주요 기능  
 
-Current features (check out the wiki for more details):
-* **Custom note types** - You're not limited to the 6 built-in note types of Anki.
-* **Custom scan directory** 
-  * The plugin will scan the entire vault by default
-  * You can also set which directory (includes all sub-directories as well) to scan via plugin settings
-* **Ignore Folders and Files**
-  * You can specify which files and folders to ignore 
-  * This can be done in the settings of this plugin with [Glob syntax](https://en.wikipedia.org/wiki/Glob_(programming)#Syntax).
-  * If you're working on your own globs, you can test them out [here](https://globster.xyz/)
-  * Examples:
-    * `**/*.excalidraw.md` - Ignore all files that end in `.excalidraw.md`
-      * => avoids excalidraw files from being scanned which can be extremely slow
-    * `Template/**` - Ignore all files in the `Template` folder (including subfolders)
-    * `**/private/**` - Ignore all files in folders that are called `private` no matter where they are in the vault
-    * `[Pp]rivate*/**` - Ignore all files and folders in the root of the vault that start with `private` or with `Private`
-* **Updating notes from file** - Your text files are the canonical source of the notes.
-* **Tags**, including **tags for an entire file**.
-* **Adding to user-specified deck** on a *per-file* basis.
-* **Markdown formatting**.
-* **Math formatting**.
-* **Embedded images**. GIFs should work too.
-* **Audio**.
-* **Auto-deleting notes from the file**.
-* **Reading from all files in a directory automatically** - recursively too!
-* **Inline Notes** - Shorter syntax for typing out notes on a single line.
-* **Easy cloze formatting** - A more compact syntax to do Cloze text
-* **Frozen Fields**
-* **Obsidian integration** - A link to the file that made the flashcard, full link and image embed support.
-* **Custom syntax** - Using **regular expressions**, add custom syntax to generate **notes that make sense for you.** Some examples:
-  * RemNote single-line style. `This is how to use::Remnote single-line style`  
-  ![Remnote 1](Images/Remnote_1.png)
-  * Header paragraph style.
-  <pre>
-  # Style
-  This style is suitable for having the header as the front, and the answer as the back
-  </pre>  
-  ![Header 1](Images/Header_1.png)
-  * Question answer style.
-  <pre>
-  Q: How do you use this style?
-  A: Just like this.
-  </pre>  
-  ![Question 1](Images/Question_1.png)
-  * Neuracache #flashcard style.  
-  <pre>
-  In Neuracache style, to make a flashcard you do #flashcard
-  The next lines then become the back of the flashcard
-  </pre>  
-  ![Neuracache 1](Images/Neuracache_1.png)
-  * Ruled style  
-  <pre>
-  How do you use ruled style?
-  ---
-  You need at least three '-' between the front and back of the card.
-  </pre>  
-  ![Ruled 1](Images/Ruled_1.png)
-  * Markdown table style  
-  <pre>
-  | Why might this style be useful? |
-  | ------ |
-  | It looks nice when rendered as HTML in a markdown editor. |
-  </pre>
-  ![Table 2](Images/Table_2.png)
-  * Cloze paragraph style  
-  <pre>
-  The idea of {cloze paragraph style} is to be able to recognise any paragraphs that contain {cloze deletions}.
-  </pre>
-  ![Cloze 1](Images/Cloze_1.png)
+**현재 지원 기능** (Wiki에서 자세히 확인 가능):  
+* **사용자 정의 노트 유형** - Anki의 기본 제공 6가지 노트 유형에 제한되지 않습니다.  
+* **사용자 정의 스캔 디렉터리**  
+  * 기본적으로 전체 Vault를 스캔합니다.  
+  * 플러그인 설정을 통해 특정 디렉터리(하위 디렉터리 포함)로 스캔 범위를 제한할 수 있습니다.  
+* **폴더 및 파일 무시**  
+  * 무시할 파일 및 폴더를 지정할 수 있습니다.  
+  * 플러그인 설정에서 [Glob 문법](https://en.wikipedia.org/wiki/Glob_(programming)#Syntax)을 사용해 설정 가능합니다.  
+  * 예제:  
+    * `**/*.excalidraw.md` - `.excalidraw.md`로 끝나는 모든 파일 무시.  
+    * `Template/**` - `Template` 폴더(하위 폴더 포함)의 모든 파일 무시.  
+    * `**/private/**` - Vault 내 `private` 폴더에 있는 모든 파일 무시.  
 
-Note that **all custom syntax is off by default**, and must be programmed into the script via the config file - see the Wiki for more details.
+---  
 
-<a href='https://ko-fi.com/K3K52X4L6' target='_blank'><img height='36' style='border:0px;height:36px;' src='https://cdn.ko-fi.com/cdn/kofi1.png?v=2' border='0' alt='Buy Me a Coffee at ko-fi.com' /></a>
+**플래시카드 생성 문법 예제**와 추가 정보는 Wiki에서 확인하세요!  
